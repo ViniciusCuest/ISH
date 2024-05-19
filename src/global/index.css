@@ -17,5 +17,6 @@ code {
 }
 
 #root {
+  box-sizing: border-box;
   position: relative;
 }

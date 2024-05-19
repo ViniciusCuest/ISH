@@ -1,12 +1,8 @@
-import { Background } from '../components/background'
-import Splash from './Splash'
+import { RouterProvider } from 'react-router'
+import { router } from '../routes/index.routes'
 
-function App() {
+export default function App() {
   return (
-    <Background full>
-      <Splash />
-    </Background>
-  )
+    <RouterProvider router={router} />
+  );
 }
-
-export default App
