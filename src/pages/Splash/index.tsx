@@ -8,6 +8,5 @@ export default function Splash() {
         <h1 className='text-5xl font-medium'>ISH</h1>
       </section>
     </Background>
-
   )
 }

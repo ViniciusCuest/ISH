@@ -1,5 +1,5 @@
 type Props = {
-  label: string;
+  label: string
   type: 'text' | 'number'
 }
 export function TextInput({ label, type }: Props) {

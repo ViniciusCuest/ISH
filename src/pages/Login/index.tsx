@@ -5,7 +5,7 @@ import { Button } from '../../components/button'
 import { TextInput } from '../../components/text-input'
 
 export default function Login() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <Background full>
       <section className='flex flex-col items-center gap-y-6 justify-center h-screen w-full '>
@@ -22,7 +22,7 @@ export default function Login() {
           <Button
             title='Entrar'
             onPress={() => {
-              navigate('/home');
+              navigate('/home')
             }}
           />
         </div>
