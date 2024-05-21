@@ -15,6 +15,7 @@ type ProductProps = {
 
 type CartContextProps = {
   cart: ProductProps[]
+  handleRemoveProduct: (productId: string) => void
   handleAddProduct: (product: ProductProps) => void
 }
 
@@ -22,6 +23,10 @@ export const CartContext = createContext({} as CartContextProps)
 
 export function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductProps[]>([])
+
+  const handleRemoveProduct = (productId: string) => {
+    setCart((prev) => prev.filter((item) => item.id !== productId))
+  }
 
   const handleAddProduct = (product: ProductProps) => {
     const alreadyInCart = cart.find((item) => item.id === product.id)?.selectedQuantity
@@ -47,6 +52,7 @@ export function CartProvider({ children }: Props) {
     <CartContext.Provider
       value={{
         cart,
+        handleRemoveProduct,
         handleAddProduct
       }}
     >

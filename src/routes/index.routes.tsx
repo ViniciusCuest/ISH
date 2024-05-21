@@ -3,11 +3,13 @@ import Splash from '../pages/splash'
 import Login from '../pages/login'
 import Home from '../pages/home'
 import Product from '../pages/product'
+import Cart from '../pages/cart'
 
 export enum RoutePaths {
   BASE = '/',
   LOGIN = '/login',
-  LOADING = '/splash'
+  LOADING = '/splash',
+  CART = '/cart'
 }
 
 export const router = createBrowserRouter([
@@ -26,5 +28,9 @@ export const router = createBrowserRouter([
   {
     path: '/product/:id',
     element: <Product />
+  },
+  {
+    path: '/cart',
+    element: <Cart />
   }
 ])

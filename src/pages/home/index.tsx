@@ -56,8 +56,8 @@ export default function Home() {
         <Header />
         <section className='flex overflow-x-auto space-x-4'>
           {data.map((item) => (
-            <div key={item.id} className='flex flex-col items-center gap-y-2 flex-none'>
-              <img className='object-cover relative h-[90px] w-[98px] rounded-xl' src={item.img} alt='' />
+            <div key={item.id} className='flex flex-col items-center gap-y-2 flex-none select-none'>
+              <img draggable={false} className='object-cover relative h-[90px] w-[98px] rounded-xl ' src={item.img} alt='' />
               <h6>{item.title}</h6>
             </div>
           ))}
