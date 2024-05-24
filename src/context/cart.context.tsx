@@ -15,17 +15,17 @@ type ProductProps = {
 
 type CartContextProps = {
   cart: ProductProps[]
-  handleRemoveProduct: (productId: string) => void
-  handleAddProduct: (product: ProductProps) => void
+  handleRemoveProduct: (productId: string) => void;
+  handleAddProduct: (product: ProductProps) => void;
 }
 
 export const CartContext = createContext({} as CartContextProps)
 
 export function CartProvider({ children }: Props) {
-  const [cart, setCart] = useState<ProductProps[]>([])
+  const [cart, setCart] = useState<ProductProps[]>([]);
 
   const handleRemoveProduct = (productId: string) => {
-    setCart((prev) => prev.filter((item) => item.id !== productId))
+    setCart(prev => prev.filter(item => item.id !== productId));
   }
 
   const handleAddProduct = (product: ProductProps) => {

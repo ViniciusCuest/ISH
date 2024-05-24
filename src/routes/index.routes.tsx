@@ -4,6 +4,9 @@ import Login from '../pages/login'
 import Home from '../pages/home'
 import Product from '../pages/product'
 import Cart from '../pages/cart'
+import Payments from '../pages/payments'
+import Status from '../pages/status'
+import Register from '../pages/register'
 
 export enum RoutePaths {
   BASE = '/',
@@ -32,5 +35,17 @@ export const router = createBrowserRouter([
   {
     path: '/cart',
     element: <Cart />
+  },
+  {
+    path: '/payments',
+    element: <Payments />
+  },
+  {
+    path: '/status',
+    element: <Status />
+  },
+  {
+    path: '/register',
+    element: <Register/>
   }
 ])

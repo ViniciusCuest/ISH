@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Product() {
   const [quantity, setQuantity] = useState<string>('0')
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { handleAddProduct } = useCart()
 
@@ -32,14 +32,12 @@ export default function Product() {
     <Background>
       <section className='px-5 flex flex-col w-full'>
         <Header />
-        <div className='flex flex-col h-[calc(100vh)] justify-center'>
+        <div className='flex flex-col mt-4 justify-center'>
           <article className='flex flex-col w-full py-4 px-4 shadow-[0px_4px_5px_0px_#0000001c] space-y-4 mt-4'>
             <header className='flex flex-row items-center justify-between'>
-              <button
-                onClick={() => {
-                  navigate('/home')
-                }}
-              >
+              <button onClick={() => {
+                navigate('/home')
+              }}>
                 <IoChevronBackOutline className='text-blue-900' size={30} />
               </button>
               <div className='flex flex-col items-center justify-center'>

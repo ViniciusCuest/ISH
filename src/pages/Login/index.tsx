@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/main.png'
 import { Background } from '../../components/background'
 import { Button } from '../../components/button'
@@ -11,7 +11,7 @@ export default function Login() {
       <section className='flex flex-col items-center gap-y-6 justify-center h-screen w-full '>
         <img src={Logo} className='w-[45%]' alt='' />
         <h1 className='font-medium text-2xl text-sky-600'>
-          Entre ou <span className='text-sky-400 underline'>Cadastre-se</span>
+          Entre ou <Link  to={'/register'} className='text-sky-400 underline'>Cadastre-se</Link>
         </h1>
         <form className='flex items-center flex-col gap-y-3 w-full px-10'>
           <TextInput type='text' label='E-mail ou telefone' />

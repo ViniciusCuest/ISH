@@ -56,15 +56,15 @@ export default function Home() {
         <Header />
         <section className='flex overflow-x-auto space-x-4'>
           {data.map((item) => (
-            <div key={item.id} className='flex flex-col items-center gap-y-2 flex-none select-none'>
+            <div key={item.id} className='flex flex-col mt-14 items-center gap-y-2 flex-none select-none'>
               <img draggable={false} className='object-cover relative h-[90px] w-[98px] rounded-xl ' src={item.img} alt='' />
               <h6>{item.title}</h6>
             </div>
           ))}
         </section>
         <hr />
-        <section className='flex flex-col w-full items-center justify-center'>
-          <h2 className='text-2xl text-sky-500 font-medium'>Anunciados Recentemente</h2>
+        <section className='flex flex-col w-full space-y-4 items-center justify-center'>
+          <h2 className='text-2xl text-sky-500 font-medium mt-6'>Anunciados Recentemente</h2>
           {cards.map((item) => (
             <div className='flex flex-row justify-between p-2 shadow-[0px_4px_5px_0px_#0000001c] w-full rounded-xl' key={item.id}>
               <img src={item.img} className='w-[78px] h-[84px] object-cover rounded-xl' alt='' />

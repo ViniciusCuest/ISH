@@ -20,3 +20,9 @@ code {
   box-sizing: border-box;
   position: relative;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: transparent;
+  background: none;
+  z-index: 1;
+}
