@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 type Props = {
   children: React.ReactNode
@@ -15,6 +15,8 @@ type ProductProps = {
 
 type CartContextProps = {
   cart: ProductProps[]
+  isMenuOpen: boolean
+  handleMenuDisplay: () => void
   handleRemoveProduct: (productId: string) => void
   handleAddProduct: (product: ProductProps) => void
 }
@@ -23,6 +25,12 @@ export const CartContext = createContext({} as CartContextProps)
 
 export function CartProvider({ children }: Props) {
   const [cart, setCart] = useState<ProductProps[]>([])
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
+  const handleMenuDisplay = () => {
+    setIsMenuOpen((prev) => !prev)
+    console.log(isMenuOpen)
+  }
 
   const handleRemoveProduct = (productId: string) => {
     setCart((prev) => prev.filter((item) => item.id !== productId))
@@ -44,14 +52,12 @@ export function CartProvider({ children }: Props) {
     setCart((prev) => [...prev, product])
   }
 
-  useEffect(() => {
-    console.log('CART: ', cart)
-  }, [cart])
-
   return (
     <CartContext.Provider
       value={{
         cart,
+        isMenuOpen,
+        handleMenuDisplay,
         handleRemoveProduct,
         handleAddProduct
       }}

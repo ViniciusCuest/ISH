@@ -1,4 +1,3 @@
-import { FaStar } from 'react-icons/fa'
 import { Button } from '../../components/button'
 import { FaTrash } from 'react-icons/fa'
 import { Background } from '../../components/background'
@@ -10,8 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Cart() {
   const navigate = useNavigate()
-  const { cart } = useCart()
-
+  const { cart, handleRemoveProduct } = useCart()
   return (
     <Background>
       <section className='px-5 flex flex-col w-full space-y-6'>
@@ -50,7 +48,16 @@ export default function Cart() {
                         <p className='text-xs'>Pescador</p>
                       </div>
                     </span>
-                    <button onClick={() => {}} className='flex flex-row flex-end items-center gap-x-1'>
+                    <button
+                      onClick={() => {
+                        const remove = window.confirm('Tem certeza que deseja remover esse produto do seu carrinho ?')
+                        if (!remove) return
+
+                        handleRemoveProduct(item.id)
+                        navigate('/home')
+                      }}
+                      className='flex flex-row flex-end items-center gap-x-1'
+                    >
                       <FaTrash size={20} className='text-cyan-900' />
                     </button>
                   </div>

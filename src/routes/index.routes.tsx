@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Splash from '../pages/splash'
 import Login from '../pages/login'
 import Home from '../pages/home'
@@ -7,6 +7,8 @@ import Cart from '../pages/cart'
 import Payments from '../pages/payments'
 import Status from '../pages/status'
 import Register from '../pages/register'
+import { MenuAside } from '../components/menu-aside'
+import { useCart } from '../context/cart.context'
 
 export enum RoutePaths {
   BASE = '/',
@@ -15,7 +17,7 @@ export enum RoutePaths {
   CART = '/cart'
 }
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: RoutePaths.BASE,
     element: <Splash />
@@ -49,3 +51,13 @@ export const router = createBrowserRouter([
     element: <Register />
   }
 ])
+
+export default function Router() {
+  const { isMenuOpen } = useCart()
+  return (
+    <>
+      <RouterProvider router={router} />
+      {isMenuOpen ? <MenuAside /> : null}
+    </>
+  )
+}

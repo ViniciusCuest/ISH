@@ -58,35 +58,33 @@ export default function Home() {
           {data.map((item) => (
             <div key={item.id} className='flex flex-col mt-14 items-center gap-y-2 flex-none select-none'>
               <img draggable={false} className='object-cover relative h-[90px] w-[98px] rounded-xl ' src={item.img} alt='' />
-              <h6>{item.title}</h6>
+              <h6 className='text-sm'>{item.title}</h6>
             </div>
           ))}
         </section>
         <hr />
         <section className='flex flex-col w-full space-y-4 items-center justify-center'>
-          <h2 className='text-2xl text-sky-500 font-medium mt-6'>Anunciados Recentemente</h2>
+          <h2 className='text-xl text-sky-500 font-medium mt-6'>Anunciados Recentemente</h2>
           {cards.map((item) => (
             <div className='flex flex-row justify-between p-2 shadow-[0px_4px_5px_0px_#0000001c] w-full rounded-xl' key={item.id}>
-              <img src={item.img} className='w-[78px] h-[84px] object-cover rounded-xl' alt='' />
+              <img src={item.img} className='w-[25%] object-cover rounded-xl' alt='' />
               <div className='flex flex-col'>
-                <div className='flex flex-row gap-x-2'>
+                <div className='flex flex-row gap-x-1 items-center'>
                   <img src={item.user.img} className='w-8 h-8 rounded-full' alt='' />
                   <span>
-                    <div>
-                      <p className='text-xs'>{item.user.nome}</p>
-                      <h4 className='text-lg text-sky-500 font-medium'>
-                        {item.title} | {item.weight ? `${item.weight}Kg` : `${item.units} unidades`}
-                      </h4>
-                    </div>
+                    <p className='text-xs'>{item.user.nome}</p>
                   </span>
                 </div>
-                <div className='flex flex-row items-center gap-x-2 mt-1'>
+                <h4 className='text-base text-sky-500 font-medium'>
+                  {item.title} | {item.weight ? `${item.weight}Kg` : `${item.units} unidades`}
+                </h4>
+                <div className='flex flex-row items-center gap-x-1 mt-1'>
                   <img src={Fishhook} alt='' />
-                  <p className='text-sm mt-[2px]'>Pescado há 5 horas</p>
+                  <p className='text-xs mt-[2px]'>Pescado há 5 horas</p>
                 </div>
               </div>
-              <div className='flex flex-col space-y-[50%] items-end'>
-                <span className='flex flex-row flex-end items-center gap-x-1'>
+              <div className='flex flex-col justify-between items-end'>
+                <span className='flex flex-row flex-end items-center gap-x-1 text-sm'>
                   {`${item.rating}`.replace('.', ',')}
                   <FaStar className='text-cyan-900' />
                 </span>

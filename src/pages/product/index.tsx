@@ -32,7 +32,7 @@ export default function Product() {
     <Background>
       <section className='px-5 flex flex-col w-full'>
         <Header />
-        <div className='flex flex-col mt-4 justify-center'>
+        <div className='flex flex-col justify-center'>
           <article className='flex flex-col w-full py-4 px-4 shadow-[0px_4px_5px_0px_#0000001c] space-y-4 mt-4'>
             <header className='flex flex-row items-center justify-between'>
               <button
@@ -40,19 +40,19 @@ export default function Product() {
                   navigate('/home')
                 }}
               >
-                <IoChevronBackOutline className='text-blue-900' size={30} />
+                <IoChevronBackOutline className='text-cyan-900' size={30} />
               </button>
               <div className='flex flex-col items-center justify-center'>
-                <h1 className='text-2xl text-sky-500 font-medium'>Camarão | 20kg</h1>
-                <p className='text-xs'>Pescado há 7 horas</p>
+                <h1 className='text-xl text-sky-500 font-medium'>Camarão | 20kg</h1>
+                <p className='text-xs text-cyan-950'>Pescado há 7 horas</p>
               </div>
               <button>
-                <IoInformationCircleOutline className='text-blue-900' size={30} />
+                <IoInformationCircleOutline className='text-cyan-900' size={30} />
               </button>
             </header>
             <img
               src='https://s3-alpha-sig.figma.com/img/3d99/81f2/c9ba1bcec3dff9874e992ed3ca4ed9ce?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jT0-QyzEDaZNS1Yj1-l0po0ZynFXqL4Hjn64SJK0biTf0B1SMWHKKj0YzD8kuEWuAps08jYJvmpHw719hXihQvBzzk01jGpciOpiHNcvOsXTrcJiB6cGheC62ry7Bb30F7OOXmSKeopXLCCIzwKQtXXFsIKLI4HZimHLheWgf49VwfYWhLqcK-hoq7mQeJRBZFNfxy4kyaANhnimxd~SDKz9Itvu9DpzqD-I3g~1xWQrF8yaH5-OLdlNaAD2EvcJAch4d71U~w82PJv8jiRLv~CINjirO4~gAh0riNCfQ5n3xEFFnOODJAMOs~Ab81z1VwdMj~MdmkL9JUYQe8U6YQ__'
-              className='rounded-xl h-[150px] object-cover'
+              className='rounded-xl h-[120px] object-cover'
               alt=''
             />
             <div className='flex flex-row justify-between'>
@@ -63,14 +63,14 @@ export default function Product() {
                   alt=''
                 />
                 <span>
-                  <h4 className='text-base font-medium'>João Eduardo</h4>
+                  <h4 className='text-base font-medium text-cyan-900'>João Eduardo</h4>
                   <div className='flex flex-row items-center gap-x-2'>
                     <img src={Fishhook} alt='' />
-                    <p>Pescador a 20 anos</p>
+                    <p className='text-sm text-cyan-950'>Pescador a 20 anos</p>
                   </div>
                 </span>
               </div>
-              <span className='flex flex-row flex-end items-center gap-x-1'>
+              <span className='flex flex-row flex-end items-center gap-x-1 text-sm text-cyan-950'>
                 {`${4.7}`.replace('.', ',')}
                 <FaStar className='text-cyan-900' />
               </span>
@@ -78,20 +78,20 @@ export default function Product() {
             <section className='flex flex-col gap-y-10'>
               <div className='flex flex-wrap relative'>
                 <h2 className='text-xl text-sky-500 font-medium'>Descrição</h2>
-                <p className='text-wrap'>
+                <p className='text-wrap text-sm text-cyan-950'>
                   De pesca em cerco caiçara, localizada na cidade de Cananeia, estou com tainhas grandes e ovadas. Realizando entrega a
                   partir das 14h enquanto durar o estoque.
                 </p>
               </div>
               <div>
-                <p className='font-medium text-xl'>R$ 6,80 / kg</p>
-                <p className='text-base'>
+                <p className='font-medium text-xl text-cyan-900'>R$ 6,80 / kg</p>
+                <p className='text-base text-cyan-900'>
                   <span className='font-medium text-sky-500'>Obs.</span> Pedido minímo de 2kg
                 </p>
               </div>
             </section>
             <footer className='flex flex-col items-center justify-center gap-y-4'>
-              <div className='w-full bg-sky-200 flex flex-row items-center justify-between px-4 py-1 rounded-md'>
+              <div className='w-full relative bg-sky-200 flex flex-row items-center justify-between px-4 py-1 rounded-md'>
                 <button
                   className='text-sky-500'
                   id='decrease'
@@ -106,7 +106,7 @@ export default function Product() {
                   id='number'
                   type='number'
                   placeholder='KG'
-                  className='bg-transparent text-center text-sky-500 font-medium placeholder:text-sky-500'
+                  className='bg-transparent w-full text-center text-sky-500 font-medium placeholder:text-sky-500'
                   value={quantity === '0' ? '' : quantity.replace(',', '.')}
                   onChange={(e) => {
                     setQuantity(e.target.value.replace(',', '.'))
@@ -125,7 +125,7 @@ export default function Product() {
               </div>
               <Button
                 size='large'
-                title='Ir para o carrinho'
+                title='Adicionar ao carrinho'
                 onPress={() => {
                   handleAddProduct({
                     fullQuantity: 20,
@@ -135,7 +135,8 @@ export default function Product() {
                     unitValue: 6.8,
                     selectedQuantity: quantity
                   })
-                  //navigate('/cart');
+                  alert('Você adicionou um item ao seu carrinho')
+                  navigate('/home')
                 }}
               />
             </footer>

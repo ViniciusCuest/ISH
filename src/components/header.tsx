@@ -6,15 +6,15 @@ import { useNavigate } from 'react-router-dom'
 
 export function Header() {
   const navigate = useNavigate()
-  const { cart } = useCart()
+  const { cart, handleMenuDisplay } = useCart()
   return (
     <header className='flex flex-row items-center justify-between'>
-      <button>
+      <button onClick={handleMenuDisplay}>
         <img src={Menu} alt='' />
       </button>
       <div className='mt-14 flex flex-row items-center gap-x-2'>
         <IoLocationOutline size={22} className='text-sky-600' />
-        <h4 className='text-black text-base font-medium'>Cananéia - SP</h4>
+        <h4 className='text-cyan-900 text-base font-medium'>Cananéia - SP</h4>
       </div>
       <button
         onClick={() => {
