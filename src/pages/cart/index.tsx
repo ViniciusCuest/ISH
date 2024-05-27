@@ -1,15 +1,15 @@
-import { Button } from '../../components/button'
-import { FaTrash } from 'react-icons/fa'
-import { Background } from '../../components/background'
-import { Header } from '../../components/header'
-import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io5'
-import { useCart } from '../../context/cart.context'
-import { MdOutlineShoppingBag } from 'react-icons/md'
-import { useNavigate } from 'react-router-dom'
+import { Button } from '../../components/button';
+import { FaTrash } from 'react-icons/fa';
+import { Background } from '../../components/background';
+import { Header } from '../../components/header';
+import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io5';
+import { useCart } from '../../context/cart.context';
+import { MdOutlineShoppingBag } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
-  const navigate = useNavigate()
-  const { cart, handleRemoveProduct } = useCart()
+  const navigate = useNavigate();
+  const { cart, handleRemoveProduct } = useCart();
   return (
     <Background>
       <section className='px-5 flex flex-col w-full space-y-6'>
@@ -17,7 +17,7 @@ export default function Cart() {
         <header className='flex flex-row items-center justify-between'>
           <button
             onClick={() => {
-              navigate('/home')
+              navigate('/home');
             }}
           >
             <IoChevronBackOutline className='text-blue-900' size={30} />
@@ -50,11 +50,11 @@ export default function Cart() {
                     </span>
                     <button
                       onClick={() => {
-                        const remove = window.confirm('Tem certeza que deseja remover esse produto do seu carrinho ?')
-                        if (!remove) return
+                        const remove = window.confirm('Tem certeza que deseja remover esse produto do seu carrinho ?');
+                        if (!remove) return;
 
-                        handleRemoveProduct(item.id)
-                        navigate('/home')
+                        handleRemoveProduct(item.id);
+                        navigate('/home');
                       }}
                       className='flex flex-row flex-end items-center gap-x-1'
                     >
@@ -74,7 +74,7 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
-            )
+            );
           })
         ) : (
           <div className='flex items-center text-sky-500 justify-center h-[50vh] w-full gap-x-2'>
@@ -99,11 +99,11 @@ export default function Cart() {
             size='large'
             title={'Ir para pagamentos'}
             onPress={() => {
-              navigate('/payments')
+              navigate('/payments');
             }}
           />
         </footer>
       </section>
     </Background>
-  )
+  );
 }

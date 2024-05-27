@@ -1,5 +1,5 @@
-import { Background } from '../../components/background'
-import Main from '../../assets/main.png'
+import { Background } from '../../components/background';
+import Main from '../../assets/main.png';
 
 export default function Status() {
   return (
@@ -8,5 +8,5 @@ export default function Status() {
         <img src={Main} alt='' />
       </section>
     </Background>
-  )
+  );
 }

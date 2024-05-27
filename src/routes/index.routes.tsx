@@ -1,14 +1,15 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Splash from '../pages/splash'
-import Login from '../pages/login'
-import Home from '../pages/home'
-import Product from '../pages/product'
-import Cart from '../pages/cart'
-import Payments from '../pages/payments'
-import Status from '../pages/status'
-import Register from '../pages/register'
-import { MenuAside } from '../components/menu-aside'
-import { useCart } from '../context/cart.context'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Splash from '../pages/splash';
+import Login from '../pages/login';
+import Home from '../pages/home';
+import Product from '../pages/product';
+import Cart from '../pages/cart';
+import Payments from '../pages/payments';
+import Status from '../pages/status';
+import Register from '../pages/register';
+import { MenuAside } from '../components/menu-aside';
+import { useCart } from '../context/cart.context';
+import ProfileSelector from '../pages/profile-selector';
 
 export enum RoutePaths {
   BASE = '/',
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
+    path: '/selector',
+    element: <ProfileSelector />
+  },
+  {
     path: '/product/:id',
     element: <Product />
   },
@@ -47,17 +52,17 @@ const router = createBrowserRouter([
     element: <Status />
   },
   {
-    path: '/register',
+    path: '/register/:type',
     element: <Register />
   }
-])
+]);
 
 export default function Router() {
-  const { isMenuOpen } = useCart()
+  const { isMenuOpen } = useCart();
   return (
     <>
       <RouterProvider router={router} />
       {isMenuOpen ? <MenuAside /> : null}
     </>
-  )
+  );
 }

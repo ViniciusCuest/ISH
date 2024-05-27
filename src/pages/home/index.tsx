@@ -1,11 +1,12 @@
-import { useNavigate } from 'react-router-dom'
-import { Background } from '../../components/background'
-import { Button } from '../../components/button'
-import { Header } from '../../components/header'
-import { FaStar } from 'react-icons/fa'
-import Fishhook from '../../assets/fishhook.png'
+import { useNavigate } from 'react-router-dom';
+import { Background } from '../../components/background';
+import { Button } from '../../components/button';
+import { Header } from '../../components/header';
+import { FaStar } from 'react-icons/fa';
+import Fishhook from '../../assets/fishhook.png';
+import { Separator } from '../../components/separator';
 export default function Home() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const data = [
     {
       id: 1,
@@ -32,7 +33,7 @@ export default function Home() {
       title: 'Peixes',
       img: 'https://s3-alpha-sig.figma.com/img/08f8/0046/9b217ce80eaa7a5ccd68442220368a10?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PlQ9qm6-Ut-va-WXmDkIxCVHEAjw24lT23HgYjWFYmitjkUyLdY6RaWoofw6QQuACEQFoST0Y9WgyWG~mH6XrnbwymDvlyWxeTYXfWl9GKQWDekQtljTMmDv7C5GZgw3W4vsTp6yePF6RVBDERgfjBgAQirJ~ZhM6njjs1-Vm7HK~9GVWojb9gZgP3wyirlhTqoaB9ysU~dSAjdMYaeqKD5G3GIYfJGNsEyVWnsJgZcTYNjg5nhQBEQd1ggLWAc-JS6ZnVThOu3P9VCZdF-N-9-v~b7IT4JQ7gYtt5z1IQO8W6VH228tWzGChpTh~BPfgEdBhhxBSmIbF02bvnFZRQ__'
     }
-  ]
+  ];
 
   const cards = [
     {
@@ -49,7 +50,7 @@ export default function Home() {
       img: 'https://s3-alpha-sig.figma.com/img/8d72/f896/a54c882383811590443787c6e5b65f19?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oGEso00n3oKHx7-x7OZOCGwuTSbnJdtM4K5BtkjAiZzVPcIlSeBnIHdHkjWUIe0O64eJmd2hJnPUGt-aurvLV5FHcZGcieCHp~0RmdZ2Pn5vm3TvpFVZXxwWwovqm21KE8SMaecXxh-yb98nvg3TEzZZneo1HiMgCQWExX988b1686NHVMyg0ZHtTtFcasPuePm-0l-DjPv45Rq5frKL8w5q1K4KeqFXyc~LWKPDS8kh07TV-UzOo828Ur63z2~46DXWf9r7wI33-ZENiNBAPC-yjHp15bD8HKGgoKR-rNXI8ROnDQybGzClaIM4Bb3aGe6EXxR5Aw0auO-3oGeQ8g__',
       rating: 4.5
     }
-  ]
+  ];
   return (
     <Background>
       <section className='px-5 flex flex-col w-full'>
@@ -62,9 +63,9 @@ export default function Home() {
             </div>
           ))}
         </section>
-        <hr />
+        <Separator />
         <section className='flex flex-col w-full space-y-4 items-center justify-center'>
-          <h2 className='text-xl text-sky-500 font-medium mt-6'>Anunciados Recentemente</h2>
+          <h2 className='text-xl text-sky-500 font-medium'>Anunciados Recentemente</h2>
           {cards.map((item) => (
             <div className='flex flex-row justify-between p-2 shadow-[0px_4px_5px_0px_#0000001c] w-full rounded-xl' key={item.id}>
               <img src={item.img} className='w-[25%] object-cover rounded-xl' alt='' />
@@ -92,7 +93,7 @@ export default function Home() {
                   title='Pedir'
                   size='small'
                   onPress={() => {
-                    navigate(`/product/${item.id}`)
+                    navigate(`/product/${item.id}`);
                   }}
                 />
               </div>
@@ -101,5 +102,5 @@ export default function Home() {
         </section>
       </section>
     </Background>
-  )
+  );
 }

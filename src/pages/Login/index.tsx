@@ -1,20 +1,20 @@
-import { Link, useNavigate } from 'react-router-dom'
-import Logo from '../../assets/main.png'
-import { Background } from '../../components/background'
-import { Button } from '../../components/button'
-import { TextInput } from '../../components/text-input'
-import { FaFacebook } from 'react-icons/fa'
-import { FcGoogle } from 'react-icons/fc'
+import { Link, useNavigate } from 'react-router-dom';
+import Logo from '../../assets/main.png';
+import { Background } from '../../components/background';
+import { Button } from '../../components/button';
+import { TextInput } from '../../components/text-input';
+import { FaFacebook } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 
 export default function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Background full>
       <section className='flex flex-col items-center gap-y-6 justify-center h-screen w-full '>
         <img src={Logo} className='w-[45%]' alt='' />
         <h1 className='font-medium text-xl text-sky-600'>
           Entre ou{' '}
-          <Link to={'/register'} className='text-sky-400 underline'>
+          <Link to={'/selector'} className='text-sky-400 underline'>
             Cadastre-se
           </Link>
         </h1>
@@ -27,7 +27,7 @@ export default function Login() {
           <Button
             title='Entrar'
             onPress={() => {
-              navigate('/home')
+              navigate('/home');
             }}
           />
         </div>
@@ -40,5 +40,5 @@ export default function Login() {
         </footer>
       </section>
     </Background>
-  )
+  );
 }

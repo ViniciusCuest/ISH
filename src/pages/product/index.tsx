@@ -1,33 +1,34 @@
-import { FaStar } from 'react-icons/fa'
-import { Background } from '../../components/background'
-import { Header } from '../../components/header'
-import Fishhook from '../../assets/fishhook.png'
-import { useState } from 'react'
-import { IoIosAdd, IoIosRemove } from 'react-icons/io'
-import { Button } from '../../components/button'
-import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io5'
-import { useCart } from '../../context/cart.context'
-import { useNavigate } from 'react-router-dom'
+import { FaStar } from 'react-icons/fa';
+import { Background } from '../../components/background';
+import { Header } from '../../components/header';
+import Fishhook from '../../assets/fishhook.png';
+import { useState } from 'react';
+import { IoIosAdd, IoIosRemove } from 'react-icons/io';
+import { Button } from '../../components/button';
+import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io5';
+import { useCart } from '../../context/cart.context';
+import { useNavigate } from 'react-router-dom';
+import { Separator } from '../../components/separator';
 
 export default function Product() {
-  const [quantity, setQuantity] = useState<string>('0')
+  const [quantity, setQuantity] = useState<string>('0');
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const { handleAddProduct } = useCart()
+  const { handleAddProduct } = useCart();
 
   const inputHandler = (action: 'inc' | 'dec') => {
     setQuantity((prevValue) => {
-      let newValue = parseFloat(prevValue)
-      newValue = isNaN(newValue) ? 0 : newValue
-      if (action === 'inc') newValue++
+      let newValue = parseFloat(prevValue);
+      newValue = isNaN(newValue) ? 0 : newValue;
+      if (action === 'inc') newValue++;
       else {
-        newValue = newValue < 1 ? 1 : newValue
-        newValue--
+        newValue = newValue < 1 ? 1 : newValue;
+        newValue--;
       }
-      return `${newValue}`
-    })
-  }
+      return `${newValue}`;
+    });
+  };
   return (
     <Background>
       <section className='px-5 flex flex-col w-full'>
@@ -37,7 +38,7 @@ export default function Product() {
             <header className='flex flex-row items-center justify-between'>
               <button
                 onClick={() => {
-                  navigate('/home')
+                  navigate('/home');
                 }}
               >
                 <IoChevronBackOutline className='text-cyan-900' size={30} />
@@ -50,6 +51,7 @@ export default function Product() {
                 <IoInformationCircleOutline className='text-cyan-900' size={30} />
               </button>
             </header>
+            <Separator small />
             <img
               src='https://s3-alpha-sig.figma.com/img/3d99/81f2/c9ba1bcec3dff9874e992ed3ca4ed9ce?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jT0-QyzEDaZNS1Yj1-l0po0ZynFXqL4Hjn64SJK0biTf0B1SMWHKKj0YzD8kuEWuAps08jYJvmpHw719hXihQvBzzk01jGpciOpiHNcvOsXTrcJiB6cGheC62ry7Bb30F7OOXmSKeopXLCCIzwKQtXXFsIKLI4HZimHLheWgf49VwfYWhLqcK-hoq7mQeJRBZFNfxy4kyaANhnimxd~SDKz9Itvu9DpzqD-I3g~1xWQrF8yaH5-OLdlNaAD2EvcJAch4d71U~w82PJv8jiRLv~CINjirO4~gAh0riNCfQ5n3xEFFnOODJAMOs~Ab81z1VwdMj~MdmkL9JUYQe8U6YQ__'
               className='rounded-xl h-[120px] object-cover'
@@ -96,7 +98,7 @@ export default function Product() {
                   className='text-sky-500'
                   id='decrease'
                   onClick={() => {
-                    inputHandler('dec')
+                    inputHandler('dec');
                   }}
                   value='Decrease Value'
                 >
@@ -109,14 +111,14 @@ export default function Product() {
                   className='bg-transparent w-full text-center text-sky-500 font-medium placeholder:text-sky-500'
                   value={quantity === '0' ? '' : quantity.replace(',', '.')}
                   onChange={(e) => {
-                    setQuantity(e.target.value.replace(',', '.'))
+                    setQuantity(e.target.value.replace(',', '.'));
                   }}
                 />
                 <button
                   className='text-sky-500 font-medium'
                   id='increase'
                   onClick={() => {
-                    inputHandler('inc')
+                    inputHandler('inc');
                   }}
                   value='Increase Value'
                 >
@@ -134,9 +136,9 @@ export default function Product() {
                     ownerName: 'João Eduardo',
                     unitValue: 6.8,
                     selectedQuantity: quantity
-                  })
-                  alert('Você adicionou um item ao seu carrinho')
-                  navigate('/home')
+                  });
+                  alert('Você adicionou um item ao seu carrinho');
+                  navigate('/home');
                 }}
               />
             </footer>
@@ -144,5 +146,5 @@ export default function Product() {
         </div>
       </section>
     </Background>
-  )
+  );
 }

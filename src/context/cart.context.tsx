@@ -1,43 +1,42 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState } from 'react';
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 type ProductProps = {
-  id: string
-  title: string
-  ownerName: string
-  fullQuantity: number
-  unitValue: number
-  selectedQuantity: string
-}
+  id: string;
+  title: string;
+  ownerName: string;
+  fullQuantity: number;
+  unitValue: number;
+  selectedQuantity: string;
+};
 
 type CartContextProps = {
-  cart: ProductProps[]
-  isMenuOpen: boolean
-  handleMenuDisplay: () => void
-  handleRemoveProduct: (productId: string) => void
-  handleAddProduct: (product: ProductProps) => void
-}
+  cart: ProductProps[];
+  isMenuOpen: boolean;
+  handleMenuDisplay: () => void;
+  handleRemoveProduct: (productId: string) => void;
+  handleAddProduct: (product: ProductProps) => void;
+};
 
-export const CartContext = createContext({} as CartContextProps)
+export const CartContext = createContext({} as CartContextProps);
 
 export function CartProvider({ children }: Props) {
-  const [cart, setCart] = useState<ProductProps[]>([])
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+  const [cart, setCart] = useState<ProductProps[]>([]);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const handleMenuDisplay = () => {
-    setIsMenuOpen((prev) => !prev)
-    console.log(isMenuOpen)
-  }
+    setIsMenuOpen((prev) => !prev);
+  };
 
   const handleRemoveProduct = (productId: string) => {
-    setCart((prev) => prev.filter((item) => item.id !== productId))
-  }
+    setCart((prev) => prev.filter((item) => item.id !== productId));
+  };
 
   const handleAddProduct = (product: ProductProps) => {
-    const alreadyInCart = cart.find((item) => item.id === product.id)?.selectedQuantity
+    const alreadyInCart = cart.find((item) => item.id === product.id)?.selectedQuantity;
     if (alreadyInCart) {
       setCart((prev) => [
         ...prev.filter((item) => item.id !== product.id),
@@ -45,12 +44,12 @@ export function CartProvider({ children }: Props) {
           ...product,
           selectedQuantity: String(parseFloat(product.selectedQuantity) + parseFloat(alreadyInCart))
         }
-      ])
-      return
+      ]);
+      return;
     }
 
-    setCart((prev) => [...prev, product])
-  }
+    setCart((prev) => [...prev, product]);
+  };
 
   return (
     <CartContext.Provider
@@ -64,10 +63,10 @@ export function CartProvider({ children }: Props) {
     >
       {children}
     </CartContext.Provider>
-  )
+  );
 }
 
 export function useCart() {
-  const context = useContext(CartContext)
-  return context
+  const context = useContext(CartContext);
+  return context;
 }

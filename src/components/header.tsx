@@ -1,12 +1,12 @@
-import Menu from '../assets/hamburguer.png'
-import Bag from '../assets/bag.png'
-import { IoLocationOutline } from 'react-icons/io5'
-import { useCart } from '../context/cart.context'
-import { useNavigate } from 'react-router-dom'
+import Menu from '../assets/hamburguer.png';
+import Bag from '../assets/bag.png';
+import { IoLocationOutline } from 'react-icons/io5';
+import { useCart } from '../context/cart.context';
+import { useNavigate } from 'react-router-dom';
 
 export function Header() {
-  const navigate = useNavigate()
-  const { cart, handleMenuDisplay } = useCart()
+  const navigate = useNavigate();
+  const { cart, handleMenuDisplay } = useCart();
   return (
     <header className='flex flex-row items-center justify-between'>
       <button onClick={handleMenuDisplay}>
@@ -18,7 +18,7 @@ export function Header() {
       </div>
       <button
         onClick={() => {
-          navigate('/cart')
+          navigate('/cart');
         }}
       >
         <img src={Bag} alt='' />
@@ -29,5 +29,5 @@ export function Header() {
         ) : null}
       </button>
     </header>
-  )
+  );
 }

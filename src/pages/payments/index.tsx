@@ -1,14 +1,14 @@
-import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io5'
-import { Background } from '../../components/background'
-import Main from '../../assets/main.png'
-import { useNavigate } from 'react-router-dom'
-import { FaCreditCard } from 'react-icons/fa'
-import { BsCashCoin } from 'react-icons/bs'
-import { MdOutlineQrCode2 } from 'react-icons/md'
-import { Button } from '../../components/button'
+import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io5';
+import { Background } from '../../components/background';
+import Main from '../../assets/main.png';
+import { useNavigate } from 'react-router-dom';
+import { FaCreditCard } from 'react-icons/fa';
+import { BsCashCoin } from 'react-icons/bs';
+import { MdOutlineQrCode2 } from 'react-icons/md';
+import { Button } from '../../components/button';
 
 export default function Payments() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Background>
       <section className='px-5 flex flex-col w-full space-y-6'>
@@ -16,7 +16,7 @@ export default function Payments() {
         <header className='flex flex-row items-center justify-between'>
           <button
             onClick={() => {
-              navigate('/home')
+              navigate('/home');
             }}
           >
             <IoChevronBackOutline className='text-blue-900' size={30} />
@@ -81,11 +81,11 @@ export default function Payments() {
             size='large'
             title={'Finalizar pedido'}
             onPress={() => {
-              navigate('/payments')
+              navigate('/payments');
             }}
           />
         </footer>
       </section>
     </Background>
-  )
+  );
 }
