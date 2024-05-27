@@ -4,6 +4,7 @@ import { Button } from '../../components/button';
 import { Header } from '../../components/header';
 import { FaStar } from 'react-icons/fa';
 import Fishhook from '../../assets/fishhook.png';
+import { TbFishHook } from "react-icons/tb";
 import { Separator } from '../../components/separator';
 export default function Home() {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ export default function Home() {
           {data.map((item) => (
             <div key={item.id} className='flex flex-col mt-14 items-center gap-y-2 flex-none select-none'>
               <img draggable={false} className='object-cover relative h-[90px] w-[98px] rounded-xl ' src={item.img} alt='' />
-              <h6 className='text-sm'>{item.title}</h6>
+              <h6 className='text-sm text-cyan-900'>{item.title}</h6>
             </div>
           ))}
         </section>
@@ -73,19 +74,19 @@ export default function Home() {
                 <div className='flex flex-row gap-x-1 items-center'>
                   <img src={item.user.img} className='w-8 h-8 rounded-full' alt='' />
                   <span>
-                    <p className='text-xs'>{item.user.nome}</p>
+                    <p className='text-xs text-cyan-900'>{item.user.nome}</p>
                   </span>
                 </div>
                 <h4 className='text-base text-sky-500 font-medium'>
                   {item.title} | {item.weight ? `${item.weight}Kg` : `${item.units} unidades`}
                 </h4>
-                <div className='flex flex-row items-center gap-x-1 mt-1'>
-                  <img src={Fishhook} alt='' />
-                  <p className='text-xs mt-[2px]'>Pescado há 5 horas</p>
+                <div className='flex flex-row items-center ml-[-6px] mt-1'>
+                  <TbFishHook size={20} className='text-sky-500' />
+                  <p className='text-xs mt-[2px] text-cyan-900'>Pescado há 5 horas</p>
                 </div>
               </div>
               <div className='flex flex-col justify-between items-end'>
-                <span className='flex flex-row flex-end items-center gap-x-1 text-sm'>
+                <span className='flex flex-row flex-end items-center gap-x-1 text-sm text-cyan-900'>
                   {`${item.rating}`.replace('.', ',')}
                   <FaStar className='text-cyan-900' />
                 </span>

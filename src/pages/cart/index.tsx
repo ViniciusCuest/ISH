@@ -6,6 +6,7 @@ import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io
 import { useCart } from '../../context/cart.context';
 import { MdOutlineShoppingBag } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { Separator } from '../../components/separator';
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -78,21 +79,21 @@ export default function Cart() {
           })
         ) : (
           <div className='flex items-center text-sky-500 justify-center h-[50vh] w-full gap-x-2'>
-            <MdOutlineShoppingBag size={40} />
-            <h1 className='text-3xl'>Carrinho vazio</h1>
+            <MdOutlineShoppingBag size={35} />
+            <h1 className='text-2xl'>Carrinho vazio</h1>
           </div>
         )}
         <footer className='flex flex-col gap-y-2 absolute bottom-0 w-full left-0 px-5 pb-3'>
           <div className='flex flex-row items-center justify-between bg-sky-200 rounded-lg p-3 flex-grow'>
             <div className='flex flex-col gap-y-2'>
               <h2 className='text-sky-500 font-medium'>Endereço:</h2>
-              <p className='text-xs'>
+              <p className='text-xs text-cyan-950'>
                 RUA TRISTÃO LOBO, 267, CENTRO <br />
                 CANANEÍA, SP, 11990-000
               </p>
             </div>
             <div className='flex flex-col justify-end h-full self-end'>
-              <p className='text-sm'>Editar endereço</p>
+              <p className='text-sm text-cyan-900 font-medium'>Editar endereço</p>
             </div>
           </div>
           <Button

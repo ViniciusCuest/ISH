@@ -11,9 +11,9 @@ export default function Splash() {
   }, []);
   return (
     <Background full>
-      <section className='flex flex-col items-center justify-center h-screen gap-5'>
+      <section className='flex flex-col items-center justify-center h-screen gap-3'>
         <img src={Logo} className='w-[70%]' alt='' />
-        <h1 className='text-5xl font-medium'>ISH</h1>
+        <h1 className='text-3xl text-sky-500 font-medium italic'>ISH</h1>
       </section>
     </Background>
   );

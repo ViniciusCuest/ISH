@@ -9,6 +9,7 @@ import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io
 import { useCart } from '../../context/cart.context';
 import { useNavigate } from 'react-router-dom';
 import { Separator } from '../../components/separator';
+import { TbFishHook } from "react-icons/tb";
 
 export default function Product() {
   const [quantity, setQuantity] = useState<string>('0');
@@ -67,8 +68,8 @@ export default function Product() {
                 <span>
                   <h4 className='text-base font-medium text-cyan-900'>João Eduardo</h4>
                   <div className='flex flex-row items-center gap-x-2'>
-                    <img src={Fishhook} alt='' />
-                    <p className='text-sm text-cyan-950'>Pescador a 20 anos</p>
+                    <TbFishHook size={20} className='text-sky-500' />
+                    <p className='text-sm ml-[-6px] text-cyan-950'>Pescador a 20 anos</p>
                   </div>
                 </span>
               </div>
