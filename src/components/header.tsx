@@ -11,7 +11,7 @@ export function Header() {
   return (
     <header className='flex flex-row items-center justify-between'>
       <button onClick={handleMenuDisplay}>
-        <IoMenu size={30} className='text-sky-500'/>
+        <IoMenu size={30} className='text-sky-500' />
       </button>
       <div className='mt-14 flex flex-row items-center gap-x-2'>
         <IoLocationOutline size={22} className='text-sky-600' />

@@ -82,10 +82,7 @@ export default function Payments() {
         <footer className='flex flex-col gap-y-2 absolute bottom-0 w-full left-0 px-5 pb-3'>
           <div className='relative flex flex-col space-y-3 mb-3 shadow-[0px_4px_5px_0px_#0000001c] px-3 py-2 rounded-lg'>
             <h4 className='break-words text-sky-500 font-medium text-wrap'>
-              Enviando para: {' '}
-              <span className="font-medium text-cyan-900 text-sm text-wrap">
-                Derick, Rua Tristã Centro
-              </span>
+              Enviando para: <span className='font-medium text-cyan-900 text-sm text-wrap'>Derick, Rua Tristã Centro</span>
             </h4>
             <div className='flex flex-row justify-between items-center'>
               <div>

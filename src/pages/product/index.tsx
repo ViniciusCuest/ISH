@@ -9,7 +9,7 @@ import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io
 import { useCart } from '../../context/cart.context';
 import { useNavigate } from 'react-router-dom';
 import { Separator } from '../../components/separator';
-import { TbFishHook } from "react-icons/tb";
+import { TbFishHook } from 'react-icons/tb';
 
 export default function Product() {
   const [quantity, setQuantity] = useState<string>('0');
@@ -130,8 +130,7 @@ export default function Product() {
                 size='large'
                 title='Adicionar ao carrinho'
                 onPress={() => {
-                  if (+quantity === 0)
-                    return alert('Quantidade não foi selecionada.');
+                  if (+quantity === 0) return alert('Quantidade não foi selecionada.');
 
                   handleAddProduct({
                     fullQuantity: 20,

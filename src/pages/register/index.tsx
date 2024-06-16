@@ -78,7 +78,7 @@ export default function Register() {
       <section className='flex flex-col pt-8'>
         <header>
           <Link to={'/login'}>
-          <IoChevronBackOutline className='text-cyan-900 ml-4' size={30} />
+            <IoChevronBackOutline className='text-cyan-900 ml-4' size={30} />
           </Link>
         </header>
         <div className='w-full flex flex-col items-center gap-y-4 justify-center'>
