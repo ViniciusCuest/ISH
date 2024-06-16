@@ -11,7 +11,7 @@ export default function Login() {
   const navigate = useNavigate();
   const handleLogin = async () => {
     try {
-      const { status } = await axios.post(
+      const { status, data } = await axios.post(
         'http://localhost:5000/login',
         {
           email: '',
@@ -23,6 +23,7 @@ export default function Login() {
           }
         }
       );
+      console.log(data);
       if (status === 200) navigate('/home');
     } catch (e) {}
   };

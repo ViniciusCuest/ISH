@@ -1,13 +1,12 @@
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaUserCircle } from 'react-icons/fa';
 import { Background } from '../../components/background';
 import { Header } from '../../components/header';
-import Fishhook from '../../assets/fishhook.png';
 import { useState } from 'react';
 import { IoIosAdd, IoIosRemove } from 'react-icons/io';
 import { Button } from '../../components/button';
 import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io5';
 import { useCart } from '../../context/cart.context';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Separator } from '../../components/separator';
 import { TbFishHook } from 'react-icons/tb';
 
@@ -15,6 +14,7 @@ export default function Product() {
   const [quantity, setQuantity] = useState<string>('0');
 
   const navigate = useNavigate();
+  const data = useLocation().state;
 
   const { handleAddProduct } = useCart();
 
@@ -45,7 +45,9 @@ export default function Product() {
                 <IoChevronBackOutline className='text-cyan-900' size={30} />
               </button>
               <div className='flex flex-col items-center justify-center'>
-                <h1 className='text-xl text-sky-500 font-medium'>Camarão | 20kg</h1>
+                <h1 className='text-xl text-sky-500 font-medium'>
+                  {data.title} | {data.weight ? `${data.weight}Kg` : `${data.units} unidades`}
+                </h1>
                 <p className='text-xs text-cyan-950'>Pescado há 7 horas</p>
               </div>
               <button>
@@ -53,20 +55,12 @@ export default function Product() {
               </button>
             </header>
             <Separator small />
-            <img
-              src='https://s3-alpha-sig.figma.com/img/3d99/81f2/c9ba1bcec3dff9874e992ed3ca4ed9ce?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jT0-QyzEDaZNS1Yj1-l0po0ZynFXqL4Hjn64SJK0biTf0B1SMWHKKj0YzD8kuEWuAps08jYJvmpHw719hXihQvBzzk01jGpciOpiHNcvOsXTrcJiB6cGheC62ry7Bb30F7OOXmSKeopXLCCIzwKQtXXFsIKLI4HZimHLheWgf49VwfYWhLqcK-hoq7mQeJRBZFNfxy4kyaANhnimxd~SDKz9Itvu9DpzqD-I3g~1xWQrF8yaH5-OLdlNaAD2EvcJAch4d71U~w82PJv8jiRLv~CINjirO4~gAh0riNCfQ5n3xEFFnOODJAMOs~Ab81z1VwdMj~MdmkL9JUYQe8U6YQ__'
-              className='rounded-xl h-[120px] object-cover'
-              alt=''
-            />
+            <img src={data.img} className='rounded-xl h-[120px] object-cover' alt='' />
             <div className='flex flex-row justify-between'>
               <div className='flex flex-row gap-x-2'>
-                <img
-                  src='https://s3-alpha-sig.figma.com/img/1a14/694e/1e4a7505c3f362efa96e570b432e48aa?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RhyjEeghvcFzpK8UsTrIIsw1aFBo1E8Bwnrg1g2FSVf0e-pq6ih14jxeBBhXYYQ5aWAUjTcioy2zxlLxexDtcI-fCXS-eYRyfgnvcd4hbDEocmWKL9QQWo14FrMthYZX6iT4EOxhCqO2h3Kn7bVzjHihK79eVjpIlFQH89ufjPbh~DgoliMd1Vbm5cGAim0qYTluzSoLq-eyeT6I6WX0y~2awBsW8l4qgpxPXwfHxHckUzAin3tMUUX8eF5Hw-8VcpBP1sxyHSkR-rVe6TIZr6SD5UEJM20oHmqV910A1zrVFOljowbgrKlBM~RDF7rinHdqT9wDMY6BzB9bvoB2hA__'
-                  className='w-12 h-12 rounded-full'
-                  alt=''
-                />
+                <FaUserCircle size={36} className='text-sky-500' />
                 <span>
-                  <h4 className='text-base font-medium text-cyan-900'>João Eduardo</h4>
+                  <h4 className='text-base font-medium text-cyan-900'>{data.user.nome}</h4>
                   <div className='flex flex-row items-center gap-x-2'>
                     <TbFishHook size={20} className='text-sky-500' />
                     <p className='text-sm ml-[-6px] text-cyan-950'>Pescador a 20 anos</p>
@@ -74,7 +68,7 @@ export default function Product() {
                 </span>
               </div>
               <span className='flex flex-row flex-end items-center gap-x-1 text-sm text-cyan-950'>
-                {`${4.7}`.replace('.', ',')}
+                {`${data.rating.toFixed(1)}`.replace('.', ',')}
                 <FaStar className='text-cyan-900' />
               </span>
             </div>
@@ -87,9 +81,11 @@ export default function Product() {
                 </p>
               </div>
               <div>
-                <p className='font-medium text-xl text-cyan-900'>R$ 6,80 / kg</p>
+                <p className='font-medium text-xl text-cyan-900'>
+                  R$ {Number(data.price).toFixed(2).replace('.', ',')} / {data.weight ? `Kg` : `unidade`}
+                </p>
                 <p className='text-base text-cyan-900'>
-                  <span className='font-medium text-sky-500'>Obs.</span> Pedido minímo de 2kg
+                  <span className='font-medium text-sky-500'>Obs.</span> Pedido minímo de 2{data.weight ? `Kg` : ` unidades`}
                 </p>
               </div>
             </section>
@@ -108,7 +104,7 @@ export default function Product() {
                 <input
                   id='number'
                   type='number'
-                  placeholder='KG'
+                  placeholder={data.weight ? `Kg` : `Unidades`}
                   className='bg-transparent w-full text-center text-sky-500 font-medium placeholder:text-sky-500'
                   value={quantity === '0' ? '' : quantity.replace(',', '.')}
                   onChange={(e) => {
@@ -130,15 +126,19 @@ export default function Product() {
                 size='large'
                 title='Adicionar ao carrinho'
                 onPress={() => {
+                  console.log(+quantity > data.weight && +quantity > data.units);
                   if (+quantity === 0) return alert('Quantidade não foi selecionada.');
+                  if (+quantity > data.weight && +quantity > data.units)
+                    return alert('A quantidade selecionada foi maior que a disponível');
 
                   handleAddProduct({
-                    fullQuantity: 20,
-                    id: '1',
-                    title: 'Tainha',
-                    ownerName: 'João Eduardo',
-                    unitValue: 6.8,
-                    selectedQuantity: quantity
+                    fullQuantity: data.weight ? data.weight : data.units,
+                    id: data.id,
+                    title: data.title,
+                    ownerName: data.user.nome,
+                    unitValue: data.price,
+                    selectedQuantity: quantity,
+                    img: data.img
                   });
                   alert('Você adicionou um item ao seu carrinho');
                   navigate('/home');

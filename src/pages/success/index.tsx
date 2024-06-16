@@ -3,8 +3,10 @@ import { Background } from '../../components/background';
 import { Button } from '../../components/button';
 import { Separator } from '../../components/separator';
 import Logo from '../../assets/main.png';
+import { useCart } from '../../context/cart.context';
 export default function Success() {
   const navigate = useNavigate();
+  const { handleClearCart } = useCart();
   return (
     <Background full>
       <section className='flex flex-col px-5 mt-12'>
@@ -14,11 +16,15 @@ export default function Success() {
           <p className='text-lg font-medium text-cyan-900'>Sua compra foi efetuada com sucesso</p>
         </div>
         <Separator />
-        <p className='text-md text-wrap text-sky-500'>Em breve você receberá seu produto conforme soliticado</p>
+        <p className='text-sm'>
+          Código da compra: <span className='font-semibold'>888639239435</span>
+        </p>
+        <p className='text-md text-wrap text-sky-500 mt-2'>Em breve você receberá seu produto conforme soliticado</p>
         <footer className='absolute bottom-0 px-5 w-full left-0 mb-5'>
           <Button
             size={'large'}
             onPress={() => {
+              handleClearCart();
               navigate('/home');
             }}
             title='Ir pro início'

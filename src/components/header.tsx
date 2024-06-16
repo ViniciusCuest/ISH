@@ -1,5 +1,3 @@
-import Menu from '../assets/hamburguer.png';
-import Bag from '../assets/bag.png';
 import { IoLocationOutline } from 'react-icons/io5';
 import { useCart } from '../context/cart.context';
 import { useNavigate } from 'react-router-dom';

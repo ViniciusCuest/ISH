@@ -1,6 +1,5 @@
 import { PiPiggyBank } from 'react-icons/pi';
 import { IoFishOutline, IoSettingsOutline } from 'react-icons/io5';
-import { RiFileList3Line } from 'react-icons/ri';
 import { BsFileEarmarkText } from 'react-icons/bs';
 import { Separator } from '../../components/separator';
 import { Button } from '../../components/button';

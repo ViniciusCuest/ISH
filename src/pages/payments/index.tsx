@@ -8,16 +8,27 @@ import { BsCashCoin } from 'react-icons/bs';
 import { MdOutlineQrCode2 } from 'react-icons/md';
 import { Button } from '../../components/button';
 import { Separator } from '../../components/separator';
+import { useCart } from '../../context/cart.context';
+import { Header } from '../../components/header';
 
 export default function Payments() {
   const navigate = useNavigate();
   const [paymentType, setPaymentType] = useState<string>('Crédito');
   const handleChangeState = (value: string) => setPaymentType(value);
 
+  const { cart } = useCart();
+
+  const totalValue: number = cart.reduce((previous: any, current: any) => {
+    return previous + +current.selectedQuantity * current.unitValue;
+  }, 0);
+
   return (
     <Background>
       <section className='px-5 flex flex-col w-full space-y-6'>
-        <img src={Main} className='w-[30%]' alt='' />
+        <Header />
+        <div className='flex flex-row items-center justify-center w-full px-3 mt-12 mb-4'>
+          <img src={Main} className='w-[30%]' alt='' />
+        </div>
         <header className='flex flex-row items-center justify-between'>
           <button
             onClick={() => {
@@ -90,14 +101,14 @@ export default function Payments() {
                 <p className='text-sky-500'>Frete:</p>
               </div>
               <div>
-                <p className='text-cyan-900'>R$ 20,00</p>
+                <p className='text-cyan-900'>R$ {totalValue.toFixed(2).replace('.', ',')}</p>
                 <p className='text-cyan-900'>R$ 8,00</p>
               </div>
             </div>
             <div className='flex flex-col'>
               <div className='flex flex-row justify-between'>
                 <p className='font-medium text-cyan-900'>Total pedido:</p>
-                <p className='font-medium text-sky-500'>R$ 28,00</p>
+                <p className='font-medium text-sky-500'>R$ {(totalValue + 8).toFixed(2).replace('.', ',')}</p>
               </div>
               <p className='text-cyan-900'>
                 Forma de pagamento: <span className='text-sky-500 font-medium'>{paymentType}</span>

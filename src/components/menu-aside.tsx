@@ -2,6 +2,7 @@ import { IoSettingsSharp, IoInformationCircleOutline } from 'react-icons/io5';
 import DarkLogo from '../assets/dark-row-logo.png';
 import { useCart } from '../context/cart.context';
 import { useEffect, useState } from 'react';
+import { FaUserCircle } from 'react-icons/fa';
 export function MenuAside() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,13 +26,9 @@ export function MenuAside() {
             <img src={DarkLogo} className='w-[70%]' alt='' />
             <span className='flex flex-row items-center space-x-3 ml-4 mt-8'>
               <div className='flex items-center justify-center p-[2px] bg-white rounded-full relative'>
-                <img
-                  className='w-12 h-12 object-cover rounded-full'
-                  src='https://s3-alpha-sig.figma.com/img/1a14/694e/1e4a7505c3f362efa96e570b432e48aa?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RhyjEeghvcFzpK8UsTrIIsw1aFBo1E8Bwnrg1g2FSVf0e-pq6ih14jxeBBhXYYQ5aWAUjTcioy2zxlLxexDtcI-fCXS-eYRyfgnvcd4hbDEocmWKL9QQWo14FrMthYZX6iT4EOxhCqO2h3Kn7bVzjHihK79eVjpIlFQH89ufjPbh~DgoliMd1Vbm5cGAim0qYTluzSoLq-eyeT6I6WX0y~2awBsW8l4qgpxPXwfHxHckUzAin3tMUUX8eF5Hw-8VcpBP1sxyHSkR-rVe6TIZr6SD5UEJM20oHmqV910A1zrVFOljowbgrKlBM~RDF7rinHdqT9wDMY6BzB9bvoB2hA__'
-                  alt=''
-                />
+                <FaUserCircle size={36} className='text-blue-600' />
               </div>
-              <h2 className='text-xl font-medium'>Olá, {'Roberto'}</h2>
+              <h2 className='text-xl font-medium text-blue-950'>Olá, {'Roberto'}</h2>
             </span>
           </div>
           <ul style={{ listStyle: 'inside' }} className='flex flex-col space-y-6 mt-6 pl-5'>

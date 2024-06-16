@@ -6,7 +6,6 @@ import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io
 import { useCart } from '../../context/cart.context';
 import { MdOutlineShoppingBag } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { Separator } from '../../components/separator';
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -32,21 +31,13 @@ export default function Cart() {
           cart.map((item) => {
             return (
               <div className='flex flex-row p-2 shadow-[0px_4px_5px_0px_#0000001c] w-full rounded-xl' key={item.id}>
-                <img
-                  src={
-                    'https://s3-alpha-sig.figma.com/img/5b06/d107/46647dc5880f69224aecc920838a1642?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=P~UvJUE4xsOH9nLBWi7q2IN9j7au9o8faFOfYO0Ctwhfe7ltz~O5FwN~86Zc7e8CPwb27xru3Wq12C-4V72jczild~XCpoRBBMYhxrudPsBBlP8OTxdCIw3~HE4~fq7USREV6Ev93Ip3GoIhSDhiP9jqDWYO9vcnOyoqcC9nUk5k4pSj2Dwfr8tBfpZXQBssadBG5ucB6cU2EXUKi56Rvkxiz9IvvhJrEsM7li5l2EZ6nMyNXqb-RkOgAY5L63Y2lKM5aCi9VhHeFv4s~pyQsirMBP-o8ct71sdVPT8wyu3~JPLnLveNICbSqnwylSYI3QSjKeHrZ5ixGZhbNkp6SQ__'
-                  }
-                  className='w-[78px] h-[84px] object-cover rounded-xl'
-                  alt=''
-                />
+                <img src={item.img} className='w-[78px] h-[84px] object-cover rounded-xl' alt='' />
                 <div className='flex flex-col justify-between w-full px-3'>
                   <div className='flex flex-row gap-x-2 w-full justify-between'>
                     <span>
                       <div>
-                        <h4 className='text-lg text-sky-500 font-medium'>
-                          {item.title} | {item.fullQuantity}
-                        </h4>
-                        <p className='text-xs'>Pescador</p>
+                        <h4 className='text-lg text-sky-500 font-medium'>{item.title}</h4>
+                        <p className='text-xs'>Pescador: {item.ownerName}</p>
                       </div>
                     </span>
                     <button

@@ -11,6 +11,7 @@ type ProductProps = {
   fullQuantity: number;
   unitValue: number;
   selectedQuantity: string;
+  img: string;
 };
 
 type CartContextProps = {
@@ -19,6 +20,7 @@ type CartContextProps = {
   handleMenuDisplay: () => void;
   handleRemoveProduct: (productId: string) => void;
   handleAddProduct: (product: ProductProps) => void;
+  handleClearCart: () => void;
 };
 
 export const CartContext = createContext({} as CartContextProps);
@@ -29,6 +31,10 @@ export function CartProvider({ children }: Props) {
 
   const handleMenuDisplay = () => {
     setIsMenuOpen((prev) => !prev);
+  };
+
+  const handleClearCart = () => {
+    setCart([]);
   };
 
   const handleRemoveProduct = (productId: string) => {
@@ -58,7 +64,8 @@ export function CartProvider({ children }: Props) {
         isMenuOpen,
         handleMenuDisplay,
         handleRemoveProduct,
-        handleAddProduct
+        handleAddProduct,
+        handleClearCart
       }}
     >
       {children}
