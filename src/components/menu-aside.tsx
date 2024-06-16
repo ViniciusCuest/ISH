@@ -23,7 +23,7 @@ export function MenuAside() {
         <header className='bg-blue-600 flex flex-col'>
           <div className='flex flex-col gap-y-2'>
             <img src={DarkLogo} className='w-[70%]' alt='' />
-            <span className='flex flex-row items-center ml-4'>
+            <span className='flex flex-row items-center space-x-3 ml-4 mt-8'>
               <div className='flex items-center justify-center p-[2px] bg-white rounded-full relative'>
                 <img
                   className='w-12 h-12 object-cover rounded-full'
@@ -34,7 +34,7 @@ export function MenuAside() {
               <h2 className='text-xl font-medium'>Olá, {'Roberto'}</h2>
             </span>
           </div>
-          <ul style={{ listStyle: 'inside' }} className='flex flex-col space-y-6 pl-5'>
+          <ul style={{ listStyle: 'inside' }} className='flex flex-col space-y-6 mt-6 pl-5'>
             <li className='text-lg text-blue-100 '>Minha conta</li>
             <li className='text-lg text-blue-100'>Meus pedidos</li>
             <li className='text-lg text-blue-100'>Meus cupons</li>

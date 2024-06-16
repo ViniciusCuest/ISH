@@ -4,7 +4,7 @@ import { FisherView } from './fisher.view';
 
 export default function Home() {
   const user = {
-    type: 'fisher'
+    type: 'customer'
   }
 
   return (

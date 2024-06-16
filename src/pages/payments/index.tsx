@@ -1,22 +1,18 @@
+import Main from '../../assets/main.png';
+import { useState } from 'react';
 import { IoChevronBackOutline, IoInformationCircleOutline } from 'react-icons/io5';
 import { Background } from '../../components/background';
-import Main from '../../assets/main.png';
 import { useNavigate } from 'react-router-dom';
 import { FaCreditCard } from 'react-icons/fa';
 import { BsCashCoin } from 'react-icons/bs';
 import { MdOutlineQrCode2 } from 'react-icons/md';
 import { Button } from '../../components/button';
 import { Separator } from '../../components/separator';
-import { useState } from 'react';
 
 export default function Payments() {
   const navigate = useNavigate();
-
   const [paymentType, setPaymentType] = useState<string>('Crédito');
-
-  const handleChangeState = (value: string) => {
-    setPaymentType(value);
-  }
+  const handleChangeState = (value: string) => setPaymentType(value);
 
   return (
     <Background>
@@ -115,7 +111,7 @@ export default function Payments() {
             size='large'
             title={'Finalizar pedido'}
             onPress={() => {
-              navigate('/payments');
+              navigate('/success');
             }}
           />
         </footer>

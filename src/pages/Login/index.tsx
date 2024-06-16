@@ -5,9 +5,26 @@ import { Button } from '../../components/button';
 import { TextInput } from '../../components/text-input';
 import { FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import axios from 'axios';
 
 export default function Login() {
   const navigate = useNavigate();
+  const handleLogin = async () => {
+    try {
+      const { status } = await axios.post('http://localhost:5000/login', {
+        email: '',
+        password: ''
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      if (status === 200)
+        navigate('/home');
+    } catch (e) {
+
+    }
+  }
   return (
     <Background full>
       <section className='flex flex-col items-center gap-y-6 justify-center h-screen w-full '>
@@ -27,7 +44,7 @@ export default function Login() {
           <Button
             title='Entrar'
             onPress={() => {
-              navigate('/home');
+              handleLogin();
             }}
           />
         </div>

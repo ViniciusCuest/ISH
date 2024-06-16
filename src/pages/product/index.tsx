@@ -130,6 +130,9 @@ export default function Product() {
                 size='large'
                 title='Adicionar ao carrinho'
                 onPress={() => {
+                  if (+quantity === 0)
+                    return alert('Quantidade não foi selecionada.');
+
                   handleAddProduct({
                     fullQuantity: 20,
                     id: '1',

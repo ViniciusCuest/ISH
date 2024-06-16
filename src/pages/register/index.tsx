@@ -1,12 +1,12 @@
+import { useRef, useState } from 'react';
 import { IoMdEyeOff, IoMdEye } from 'react-icons/io';
 import { Background } from '../../components/background';
 import { Button } from '../../components/button';
 import { MdCalendarMonth, MdLocalPhone, MdOutlineEmail } from 'react-icons/md';
 import { FaAddressCard, FaIdCardAlt } from 'react-icons/fa';
 import Logo from '../../assets/main.png';
-import { useParams } from 'react-router-dom';
-import { useRef, useState } from 'react';
-import { IoPersonSharp } from 'react-icons/io5';
+import { Link, useParams } from 'react-router-dom';
+import { IoPersonSharp, IoChevronBackOutline } from 'react-icons/io5';
 
 type RegistrationProps = {
   name: string;
@@ -76,6 +76,11 @@ export default function Register() {
   return (
     <Background full>
       <section className='flex flex-col pt-8'>
+        <header>
+          <Link to={'/login'}>
+          <IoChevronBackOutline className='text-cyan-900 ml-4' size={30} />
+          </Link>
+        </header>
         <div className='w-full flex flex-col items-center gap-y-4 justify-center'>
           <img src={Logo} className='w-[35%]' alt='' />
           <h1 className='text-sky-900 text-lg font-medium'>Cadastro cliente</h1>

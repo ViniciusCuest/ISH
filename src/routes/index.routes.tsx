@@ -10,6 +10,7 @@ import Register from '../pages/register';
 import { MenuAside } from '../components/menu-aside';
 import { useCart } from '../context/cart.context';
 import ProfileSelector from '../pages/profile-selector';
+import Success from '../pages/success';
 
 export enum RoutePaths {
   BASE = '/',
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: '/register/:type',
     element: <Register />
+  },
+  {
+    path: '/success',
+    element: <Success />
   }
 ]);
 
